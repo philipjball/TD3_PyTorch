@@ -41,7 +41,7 @@ class TD3_Agent:
         self.q_optimizer = torch.optim.Adam(self.q_funcs.parameters(), lr=lr)
         self.policy_optimizer = torch.optim.Adam(self.policy.parameters(), lr=lr)
 
-        self.replay_pool = ReplayPool(capacity=int(buffer_size))
+        self.replay_pool = ReplayPool(action_dim=action_dim, state_dim=state_dim, capacity=int(buffer_size))
 
         self._update_counter = 0
 
